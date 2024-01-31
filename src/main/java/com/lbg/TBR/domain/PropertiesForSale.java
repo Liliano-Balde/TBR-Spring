@@ -1,10 +1,20 @@
 package com.lbg.TBR.domain;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
-public class PropertiesForSale {
 
+public class PropertiesForSale {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	private String type;
@@ -20,7 +30,9 @@ public class PropertiesForSale {
 	private String address;
 
 	private String postcode;
-
+	@JsonManagedReference
+	@OneToMany(mappedBy = "propertiesForSale")
+	private List<BookingForSale> bookingForSales;
 	public PropertiesForSale() {
 		super();
 	}
