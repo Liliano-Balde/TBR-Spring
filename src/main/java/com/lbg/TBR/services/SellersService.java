@@ -20,8 +20,8 @@ public class SellersService {
 		this.repo = repo;
 	}
 
-	public ResponseEntity<Sellers> createSeller(Sellers newSeller) {
-		Sellers created = this.repo.save(newSeller);
+	public ResponseEntity<Sellers> createSellers(Sellers newSellers) {
+		Sellers created = this.repo.save(newSellers);
 		return new ResponseEntity<Sellers>(created, HttpStatus.CREATED);
 	}
 
