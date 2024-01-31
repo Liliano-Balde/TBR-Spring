@@ -30,9 +30,11 @@ public class PropertiesForSale {
 	private String address;
 
 	private String postcode;
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "propertiesForSale")
 	private List<BookingForSale> bookingForSales;
+
 	public PropertiesForSale() {
 		super();
 	}
