@@ -16,7 +16,7 @@ public class Sellers {
 
 	private String lastName;
 
-	private String addess;
+	private String address;
 
 	private String postcode;
 
@@ -50,12 +50,12 @@ public class Sellers {
 		this.lastName = lastName;
 	}
 
-	public String getAddess() {
-		return addess;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddess(String addess) {
-		this.addess = addess;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getPostcode() {
@@ -73,5 +73,6 @@ public class Sellers {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 
 }
