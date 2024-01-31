@@ -2,7 +2,6 @@ package com.lbg.TBR.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
@@ -33,6 +32,7 @@ public class PropertiesToLet {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "propertiesToLet")
 	private List<BookingForLet> bookingForLets;
+
 	public PropertiesToLet() {
 		super();
 	}
