@@ -17,7 +17,6 @@ import com.lbg.TBR.services.PropertiesToLetService;
 @RestController
 @RequestMapping("/PLet")
 @CrossOrigin
-
 public class PropertiesToLetController {
 
 	private PropertiesToLetService service;
