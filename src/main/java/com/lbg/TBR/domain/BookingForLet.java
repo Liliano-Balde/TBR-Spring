@@ -18,13 +18,15 @@ public class BookingForLet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	private String name;
+
 	private String email;
 
 	private String phoneNumber;
 
 	private LocalDate date;
 
-	private LocalTime time;
+	private LocalTime timeSlot;
 
 	@JsonBackReference
 	@ManyToOne
@@ -66,12 +68,20 @@ public class BookingForLet {
 		this.date = date;
 	}
 
-	public LocalTime getTime() {
-		return time;
+	public String getName() {
+		return name;
 	}
 
-	public void setTime(LocalTime time) {
-		this.time = time;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalTime getTimeSlot() {
+		return timeSlot;
+	}
+
+	public void setTimeSlot(LocalTime timeSlot) {
+		this.timeSlot = timeSlot;
 	}
 
 	public PropertiesToLet getPropertiesToLet() {
