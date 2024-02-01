@@ -38,4 +38,9 @@ public class BuyersService {
 		return ResponseEntity.ok(body);
 	}
 
+	public boolean deleteBuyers(int id) {
+		this.repo.deleteById(id);
+		return !this.repo.existsById(id);
+	}
+
 }

@@ -38,4 +38,9 @@ public class SellersService {
 		return ResponseEntity.ok(body);
 	}
 
+	public boolean deleteSellers(int id) {
+		this.repo.deleteById(id);
+		return !this.repo.existsById(id);
+	}
+
 }
