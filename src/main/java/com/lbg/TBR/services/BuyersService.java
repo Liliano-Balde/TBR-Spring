@@ -43,4 +43,29 @@ public class BuyersService {
 		return !this.repo.existsById(id);
 	}
 
+	public ResponseEntity<Buyers> update(int id, Buyers newBuyers) {
+		Optional<Buyers> found = this.repo.findById(id);
+		if (found.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		Buyers existing = found.get();
+		if (newBuyers.getFirstName() != null) {
+			existing.setFirstName(newBuyers.getFirstName());
+		}
+		if (newBuyers.getLastName() != null) {
+			existing.setLastName(newBuyers.getLastName());
+		}
+		if (newBuyers.getAddress() != null) {
+			existing.setAddress(newBuyers.getAddress());
+		}
+		if (newBuyers.getPostcode() != null) {
+			existing.setPostcode(newBuyers.getPostcode());
+		}
+		if (newBuyers.getPhoneNumber() != null) {
+			existing.setPhoneNumber(newBuyers.getPhoneNumber());
+		}
+		Buyers updated = this.repo.save(existing);
+		return ResponseEntity.ok(updated);
+	}
+
 }
