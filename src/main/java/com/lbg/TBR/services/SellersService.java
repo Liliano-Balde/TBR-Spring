@@ -43,7 +43,7 @@ public class SellersService {
 		return !this.repo.existsById(id);
 	}
 
-	public ResponseEntity<Sellers> update(int id, Sellers newSellers) {
+	public ResponseEntity<Sellers> editSellers(int id, Sellers newSellers) {
 		Optional<Sellers> found = this.repo.findById(id);
 		if (found.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -64,8 +64,8 @@ public class SellersService {
 		if (newSellers.getPhoneNumber() != null) {
 			existing.setPhoneNumber(newSellers.getPhoneNumber());
 		}
-		Sellers updated = this.repo.save(existing);
-		return ResponseEntity.ok(updated);
+		Sellers edited = this.repo.save(existing);
+		return ResponseEntity.ok(edited);
 	}
 
 }

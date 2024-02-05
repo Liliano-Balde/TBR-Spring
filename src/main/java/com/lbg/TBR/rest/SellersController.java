@@ -51,8 +51,8 @@ public class SellersController {
 		return this.service.deleteSellers(id);
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Sellers> update(@PathVariable int id, @RequestBody Sellers newSellers) {
-		return this.service.update(id, newSellers);
+	@PutMapping("/edit/{id}")
+	public ResponseEntity<Sellers> editSellers(@PathVariable int id, @RequestBody Sellers newSellers) {
+		return this.service.editSellers(id, newSellers);
 	}
 }

@@ -48,9 +48,10 @@ public class BookingForSaleController {
 		return this.service.deleteBookingForSale(id);
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<BookingForSale> update(@PathVariable int id, @RequestBody BookingForSale newBookingForSale) {
-		return this.service.update(id, newBookingForSale);
+	@PutMapping("/edit/{id}")
+	public ResponseEntity<BookingForSale> editBookingForSale(@PathVariable int id,
+			@RequestBody BookingForSale newBookingForSale) {
+		return this.service.editBookingForSale(id, newBookingForSale);
 	}
 
 }
