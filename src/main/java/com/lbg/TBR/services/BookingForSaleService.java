@@ -43,7 +43,7 @@ public class BookingForSaleService {
 		return !this.repo.existsById(id);
 	}
 
-	public ResponseEntity<BookingForSale> update(int id, BookingForSale newBookingForSale) {
+	public ResponseEntity<BookingForSale> editBookingForSale(int id, BookingForSale newBookingForSale) {
 		Optional<BookingForSale> found = this.repo.findById(id);
 		if (found.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -64,8 +64,8 @@ public class BookingForSaleService {
 		if (newBookingForSale.getTimeSlot() != null) {
 			existing.setTimeSlot(newBookingForSale.getTimeSlot());
 		}
-		BookingForSale updated = this.repo.save(existing);
-		return ResponseEntity.ok(updated);
+		BookingForSale edited = this.repo.save(existing);
+		return ResponseEntity.ok(edited);
 	}
 
 }
