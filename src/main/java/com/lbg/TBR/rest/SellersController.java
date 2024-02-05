@@ -19,7 +19,7 @@ import com.lbg.TBR.domain.Sellers;
 import com.lbg.TBR.services.SellersService;
 
 @RestController
-@RequestMapping("/sellers")
+@RequestMapping("/Sellers")
 @CrossOrigin
 
 public class SellersController {
