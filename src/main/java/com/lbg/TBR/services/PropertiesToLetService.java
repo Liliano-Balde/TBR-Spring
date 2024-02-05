@@ -43,4 +43,38 @@ public class PropertiesToLetService {
 		return !this.repo.existsById(id);
 	}
 
+	public ResponseEntity<PropertiesToLet> editPropertiesToLet(int id, PropertiesToLet newPropertiesToLet) {
+		Optional<PropertiesToLet> found = this.repo.findById(id);
+
+		if (found.isEmpty()) {
+			return new ResponseEntity<PropertiesToLet>(HttpStatus.NOT_FOUND);
+		}
+		PropertiesToLet existing = found.get();
+
+		if (newPropertiesToLet.getType() != null) {
+			existing.setType(newPropertiesToLet.getType());
+		}
+		if (newPropertiesToLet.getRent() != 0) {
+			existing.setRent(newPropertiesToLet.getRent());
+		}
+		if (newPropertiesToLet.getBedrooms() != 0) {
+			existing.setBedrooms(newPropertiesToLet.getBedrooms());
+		}
+		if (newPropertiesToLet.getBathrooms() != 0) {
+			existing.setBathrooms(newPropertiesToLet.getBathrooms());
+		}
+		if (newPropertiesToLet.getGarden() != null) {
+			existing.setGarden(newPropertiesToLet.getGarden());
+		}
+		if (newPropertiesToLet.getAddress() != null) {
+			existing.setAddress(newPropertiesToLet.getAddress());
+		}
+		if (newPropertiesToLet.getPostcode() != null) {
+			existing.setPostcode(newPropertiesToLet.getPostcode());
+		}
+		PropertiesToLet edited = this.repo.save(existing);
+
+		return ResponseEntity.ok(edited);
+	}
+
 }

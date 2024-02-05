@@ -48,8 +48,9 @@ public class BookingForLetController {
 		return this.service.deleteBookingForLet(id);
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<BookingForLet> update(@PathVariable int id, @RequestBody BookingForLet newBookingForLet) {
-		return this.service.update(id, newBookingForLet);
+	@PutMapping("/edit/{id}")
+	public ResponseEntity<BookingForLet> editBookingForLet(@PathVariable int id,
+			@RequestBody BookingForLet newBookingForLet) {
+		return this.service.editBookingForLet(id, newBookingForLet);
 	}
 }
