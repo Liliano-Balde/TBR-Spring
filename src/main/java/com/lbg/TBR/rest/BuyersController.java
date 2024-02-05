@@ -48,9 +48,9 @@ public class BuyersController {
 		return this.service.deleteBuyers(id);
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Buyers> update(@PathVariable int id, @RequestBody Buyers newBuyers) {
-		return this.service.update(id, newBuyers);
+	@PutMapping("/edit/{id}")
+	public ResponseEntity<Buyers> editBuyers(@PathVariable int id, @RequestBody Buyers newBuyers) {
+		return this.service.editBuyers(id, newBuyers);
 	}
 
 }
