@@ -38,4 +38,9 @@ public class PropertiesForSaleService {
 		return ResponseEntity.ok(body);
 	}
 
+	public boolean deletePropertiesForSale(int id) {
+		this.repo.deleteById(id);
+		return !this.repo.existsById(id);
+	}
+
 }
