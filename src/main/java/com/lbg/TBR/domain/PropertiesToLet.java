@@ -29,6 +29,9 @@ public class PropertiesToLet {
 	private String address;
 
 	private String postcode;
+
+	private String propertyStatus;
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "propertiesToLet")
 	private List<BookingForLet> bookingForLets;
@@ -99,6 +102,14 @@ public class PropertiesToLet {
 
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
+	}
+
+	public String getPropertyStatus() {
+		return propertyStatus;
+	}
+
+	public void setPropertyStatus(String propertyStatus) {
+		this.propertyStatus = propertyStatus;
 	}
 
 }
