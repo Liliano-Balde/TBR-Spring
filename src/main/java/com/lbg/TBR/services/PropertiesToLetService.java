@@ -72,6 +72,9 @@ public class PropertiesToLetService {
 		if (newPropertiesToLet.getPostcode() != null) {
 			existing.setPostcode(newPropertiesToLet.getPostcode());
 		}
+		if (newPropertiesToLet.getPropertyStatus() != null) {
+			existing.setPropertyStatus(newPropertiesToLet.getPropertyStatus());
+		}
 		PropertiesToLet edited = this.repo.save(existing);
 
 		return ResponseEntity.ok(edited);

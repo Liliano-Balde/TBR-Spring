@@ -72,6 +72,9 @@ public class PropertiesForSaleService {
 		if (newPropertiesForSale.getPostcode() != null) {
 			existing.setPostcode(newPropertiesForSale.getPostcode());
 		}
+		if (newPropertiesForSale.getPropertyStatus() != null) {
+			existing.setPropertyStatus(newPropertiesForSale.getPropertyStatus());
+		}
 		PropertiesForSale edited = this.repo.save(existing);
 
 		return ResponseEntity.ok(edited);
