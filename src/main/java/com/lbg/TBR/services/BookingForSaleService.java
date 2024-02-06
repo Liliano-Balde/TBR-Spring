@@ -43,4 +43,29 @@ public class BookingForSaleService {
 		return !this.repo.existsById(id);
 	}
 
+	public ResponseEntity<BookingForSale> editBookingForSale(int id, BookingForSale newBookingForSale) {
+		Optional<BookingForSale> found = this.repo.findById(id);
+		if (found.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		BookingForSale existing = found.get();
+		if (newBookingForSale.getName() != null) {
+			existing.setName(newBookingForSale.getName());
+		}
+		if (newBookingForSale.getEmail() != null) {
+			existing.setEmail(newBookingForSale.getEmail());
+		}
+		if (newBookingForSale.getPhoneNumber() != null) {
+			existing.setPhoneNumber(newBookingForSale.getPhoneNumber());
+		}
+		if (newBookingForSale.getDate() != null) {
+			existing.setDate(newBookingForSale.getDate());
+		}
+		if (newBookingForSale.getTimeSlot() != null) {
+			existing.setTimeSlot(newBookingForSale.getTimeSlot());
+		}
+		BookingForSale edited = this.repo.save(existing);
+		return ResponseEntity.ok(edited);
+	}
+
 }

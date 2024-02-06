@@ -31,6 +31,8 @@ public class PropertiesForSale {
 
 	private String postcode;
 
+	private String propertyStatus;
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "propertiesForSale")
 	private List<BookingForSale> bookingForSales;
@@ -101,6 +103,14 @@ public class PropertiesForSale {
 
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
+	}
+
+	public String getPropertyStatus() {
+		return propertyStatus;
+	}
+
+	public void setPropertyStatus(String propertyStatus) {
+		this.propertyStatus = propertyStatus;
 	}
 
 }

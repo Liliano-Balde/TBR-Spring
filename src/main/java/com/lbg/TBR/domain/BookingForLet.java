@@ -1,7 +1,6 @@
 package com.lbg.TBR.domain;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -26,7 +25,7 @@ public class BookingForLet {
 
 	private LocalDate date;
 
-	private LocalTime timeSlot;
+	private String timeSlot;
 
 	@JsonBackReference
 	@ManyToOne
@@ -76,11 +75,11 @@ public class BookingForLet {
 		this.name = name;
 	}
 
-	public LocalTime getTimeSlot() {
+	public String getTimeSlot() {
 		return timeSlot;
 	}
 
-	public void setTimeSlot(LocalTime timeSlot) {
+	public void setTimeSlot(String timeSlot) {
 		this.timeSlot = timeSlot;
 	}
 

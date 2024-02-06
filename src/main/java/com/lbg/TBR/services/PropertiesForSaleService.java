@@ -38,4 +38,46 @@ public class PropertiesForSaleService {
 		return ResponseEntity.ok(body);
 	}
 
+	public boolean deletePropertiesForSale(int id) {
+		this.repo.deleteById(id);
+		return !this.repo.existsById(id);
+	}
+
+	public ResponseEntity<PropertiesForSale> editPropertiesForSale(int id, PropertiesForSale newPropertiesForSale) {
+		Optional<PropertiesForSale> found = this.repo.findById(id);
+
+		if (found.isEmpty()) {
+			return new ResponseEntity<PropertiesForSale>(HttpStatus.NOT_FOUND);
+		}
+		PropertiesForSale existing = found.get();
+
+		if (newPropertiesForSale.getType() != null) {
+			existing.setType(newPropertiesForSale.getType());
+		}
+		if (newPropertiesForSale.getPrice() != 0) {
+			existing.setPrice(newPropertiesForSale.getPrice());
+		}
+		if (newPropertiesForSale.getBedrooms() != 0) {
+			existing.setBedrooms(newPropertiesForSale.getBedrooms());
+		}
+		if (newPropertiesForSale.getBathrooms() != 0) {
+			existing.setBathrooms(newPropertiesForSale.getBathrooms());
+		}
+		if (newPropertiesForSale.getGarden() != null) {
+			existing.setGarden(newPropertiesForSale.getGarden());
+		}
+		if (newPropertiesForSale.getAddress() != null) {
+			existing.setAddress(newPropertiesForSale.getAddress());
+		}
+		if (newPropertiesForSale.getPostcode() != null) {
+			existing.setPostcode(newPropertiesForSale.getPostcode());
+		}
+		if (newPropertiesForSale.getPropertyStatus() != null) {
+			existing.setPropertyStatus(newPropertiesForSale.getPropertyStatus());
+		}
+		PropertiesForSale edited = this.repo.save(existing);
+
+		return ResponseEntity.ok(edited);
+	}
+
 }

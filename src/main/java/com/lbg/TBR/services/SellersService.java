@@ -43,4 +43,29 @@ public class SellersService {
 		return !this.repo.existsById(id);
 	}
 
+	public ResponseEntity<Sellers> editSellers(int id, Sellers newSellers) {
+		Optional<Sellers> found = this.repo.findById(id);
+		if (found.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		Sellers existing = found.get();
+		if (newSellers.getFirstName() != null) {
+			existing.setFirstName(newSellers.getFirstName());
+		}
+		if (newSellers.getLastName() != null) {
+			existing.setLastName(newSellers.getLastName());
+		}
+		if (newSellers.getAddress() != null) {
+			existing.setAddress(newSellers.getAddress());
+		}
+		if (newSellers.getPostcode() != null) {
+			existing.setPostcode(newSellers.getPostcode());
+		}
+		if (newSellers.getPhoneNumber() != null) {
+			existing.setPhoneNumber(newSellers.getPhoneNumber());
+		}
+		Sellers edited = this.repo.save(existing);
+		return ResponseEntity.ok(edited);
+	}
+
 }

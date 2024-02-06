@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +41,17 @@ public class PropertiesToLetController {
 	@GetMapping("/get/{id}")
 	public ResponseEntity<PropertiesToLet> getPropertiesToLet(@PathVariable int id) {
 		return this.service.getPropertiesToLet(id);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public boolean deletePropertiesToLet(@PathVariable int id) {
+		return this.service.deletePropertiesToLet(id);
+	}
+
+	@PutMapping("/edit/{id}")
+	public ResponseEntity<PropertiesToLet> editPropertiesToLet(@PathVariable int id,
+			@RequestBody PropertiesToLet newPropertiesToLet) {
+		return this.service.editPropertiesToLet(id, newPropertiesToLet);
 	}
 
 }
